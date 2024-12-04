@@ -7,21 +7,21 @@ public class weapons : MonoBehaviour
 {
    public bool isShooting, readyToShoot;
 
-   public int bulletsPerBurst = 1;
+    public int bulletsPerBurst = 1;
    public int currentBurst;
    public int weaponDemage;
 
-    public GameObject bulletPrefab;
+    public bullets bulletPrefab;
     public Transform bulletSpawn;
     public float bulletVelocity = 30;
     public float bulletPrefabLifeTime = 3f;
 
 
-public float reloadTime;
-public int magazineSize, bulletsLeft;
-public bool isReloading;
+    public float reloadTime;
+    public int magazineSize, bulletsLeft;
+    public bool isReloading;
 
-public TextMeshProUGUI ammoDisplay;
+    public TextMeshProUGUI ammoDisplay;
 
 
 
@@ -31,36 +31,31 @@ public TextMeshProUGUI ammoDisplay;
     {
      
 
-     if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && isReloading == false)
-     {
-      Reload();
-     }
+         if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && isReloading == false)
+         {
+            Reload();
+         }
+    
+         if (ammoDisplay != null)
+         {
+          ammoDisplay.text = $"{bulletsLeft/bulletsPerBurst}/{magazineSize/bulletsPerBurst}";
+         }
 
-     if (ammoDisplay != null)
-     {
-      ammoDisplay.text = $"{bulletsLeft/bulletsPerBurst}/{magazineSize/bulletsPerBurst}";
-     }
-
-     if(!isReloading && readyToShoot && Input.GetKeyDown(KeyCode.Mouse0) && bulletsLeft > 0 )
-        {
-          currentBurst = bulletsPerBurst;
-          FireWeapon();
-        }
+         if(!isReloading && readyToShoot && Input.GetKeyDown(KeyCode.Mouse0) && bulletsLeft > 0 )
+         {
+              currentBurst = bulletsPerBurst;
+              FireWeapon();
+         }
 
     }
 
     public void FireWeapon()
     {
       bulletsLeft--;
-      
-      GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
-      bullets bul = bullet.GetComponent<bullets>();
-      bul.bulletDamage = weaponDemage;
+      bullets bul = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
+      bul.Init(bulletSpawn.forward.normalized, bulletVelocity, weaponDemage);  
 
-
-      bullet.GetComponent<Rigidbody>().AddForce(bulletSpawn.forward.normalized * bulletVelocity, ForceMode.Impulse);
-
-      StartCoroutine(DestroyBulletAfterTime(bullet, bulletPrefabLifeTime));
+      StartCoroutine(DestroyBulletAfterTime(bul.gameObject, bulletPrefabLifeTime));
 
     }
 

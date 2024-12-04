@@ -11,10 +11,10 @@ public class PlayerCollisionChecker : MonoBehaviour
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-       if(hit.collider.TryGetComponent(out damage enemy) && enemy.IsActive)
-       {
-            hp.TakeDamage(enemy.DamageAmount);
-            enemy.ReleaseDamage();
-       }
+       // if(hit.collider.TryGetComponent(out damage enemy) && enemy.IsActive)
+       // {
+       //      hp.TakeDamage(enemy.DamageAmount);
+       //      enemy.ReleaseDamage();
+       // }
     }
 }
