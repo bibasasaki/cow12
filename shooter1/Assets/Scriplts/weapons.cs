@@ -29,7 +29,7 @@ public class weapons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
+      if(!pause.isPaused)
 
          if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && isReloading == false)
          {
@@ -50,7 +50,8 @@ public class weapons : MonoBehaviour
     }
 
     public void FireWeapon()
-    {
+    { if(!pause.isPaused)
+    
       bulletsLeft--;
       bullets bul = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.identity);
       bul.Init(bulletSpawn.forward.normalized, bulletVelocity, weaponDemage);  
@@ -75,6 +76,7 @@ public class weapons : MonoBehaviour
 
     private IEnumerator DestroyBulletAfterTime(GameObject bullet, float delay)
     {
+      if(!pause.isPaused)
        yield return new WaitForSeconds(delay);
        Destroy(bullet);
 
