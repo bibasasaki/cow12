@@ -1,15 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
-public class FlowerDamege : MonoBehaviour
+public class FlowerDamege : MonoBehaviour, IClickable
 {
-    // Start is called before the first frame update
+    private Outline _outline;
+    private bool isUsed;
 
-
-    public void OnTriggerEnter(Collider other)
+    private void Awake()
     {
-        if (other.gameObject.CompareTag("Melee"))
-            Destroy(gameObject);//Or apply a damage method
+        _outline = GetComponent<Outline>();
+        _outline.enabled = false;
     }
+     public  void Hover()
+    {
+        if(isUsed) return;
+        _outline.enabled = true;
+        Debug.Log("Hover");
+
+    }
+    public void UnHover()
+    {
+        if(isUsed) return;
+
+        _outline.enabled = false;
+          Debug.Log("UNHover");
+    }
+
+    public void Click()
+    {
+
+    }
+
 }

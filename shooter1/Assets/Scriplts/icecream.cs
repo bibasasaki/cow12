@@ -17,7 +17,6 @@ public class icecream : MonoBehaviour, IClickable
     }
 
 
-
     public  void Hover()
     {
         if(isUsed) return;
