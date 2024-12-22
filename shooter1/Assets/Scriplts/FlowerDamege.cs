@@ -5,20 +5,11 @@ using UnityEngine;
 public class FlowerDamege : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Melee")
+        if (other.gameObject.CompareTag("Melee"))
             Destroy(gameObject);//Or apply a damage method
     }
 }
