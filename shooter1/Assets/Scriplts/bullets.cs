@@ -25,6 +25,12 @@ public class bullets : MonoBehaviour
             Debug.Log("hit" + cow.name + " !");
             Destroy(gameObject);
         }
+        if (collision.gameObject.TryGetComponent(out cowzombie2 cow2))
+        {
+            cow2.TakeDamage(bulletDamage);
+            Debug.Log("hit" + cow.name + " !");
+            Destroy(gameObject);
+        }
 
     }
 }

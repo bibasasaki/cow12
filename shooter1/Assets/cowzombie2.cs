@@ -3,13 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cawzombie : MonoBehaviour
+
+public class cowzombie2 : MonoBehaviour
 {
     [SerializeField] private int HP = 100;
     private Animator animator;
-    public bool isDead;
-
-    public victory vin;
 
     private void Start()
     {
@@ -20,11 +18,9 @@ public class cawzombie : MonoBehaviour
     {
         HP -= damageAmount;
 
-        if (HP <= 0 && !isDead)
+        if (HP <= 0 )
         {
-            isDead = true;
             animator.SetTrigger("DIE");
-            vin.Victory();
             Destroy(gameObject);
         }
         else

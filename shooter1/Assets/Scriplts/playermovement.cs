@@ -34,7 +34,7 @@ public class playermovement : MonoBehaviour
 
     void Update()
     {   
-        if(!pause.isPaused)
+        if(!pause.isPaused && !victory.isPaused)
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);

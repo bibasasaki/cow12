@@ -9,6 +9,8 @@ public class healthbar : MonoBehaviour
     [SerializeField]
     private float _maximumHealth;
 
+    private bool isDead;
+
     public float RemainingHealthPercentage
     {
       get
@@ -20,6 +22,8 @@ public class healthbar : MonoBehaviour
     public UnityEvent OnDied;
 
     public UnityEvent OnHealthChanged;
+
+    public Gameover gameover;
 
 
 public void TakeDamage(float damageAmount)
@@ -36,10 +40,12 @@ public void TakeDamage(float damageAmount)
 
     OnHealthChanged.Invoke();
 
-    if (_currentHealth <= 0)
+    if (_currentHealth <= 0 && !isDead)
     {
+        isDead = true;
         _currentHealth = 0;
-         OnDied.Invoke();
+        gameover.gameOver();
+        OnDied.Invoke();
     }
 
   

@@ -95,11 +95,11 @@ GameObject:
   - component: {fileID: 1309014627043390545}
   - component: {fileID: 3628888774122870739}
   - component: {fileID: 4682950520371056221}
-  - component: {fileID: 740699895643021749}
   - component: {fileID: 6762561468984855635}
   - component: {fileID: 2564196177978401304}
   - component: {fileID: 1868240469158892050}
   - component: {fileID: 4419377011630117087}
+  - component: {fileID: 2860449114241767110}
   m_Layer: 0
   m_Name: enemy2d
   m_TagString: Zombie
@@ -156,21 +156,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Radius: 1.82
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &740699895643021749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 491970148989194740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ec88aa613a7c7d4585517879ef7de5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 100
 --- !u!95 &6762561468984855635
 Animator:
   serializedVersion: 5
@@ -250,3 +237,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.64, y: 2.37, z: 2.06}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2860449114241767110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491970148989194740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7da48df96678e644d9772db8d3d4ebd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
